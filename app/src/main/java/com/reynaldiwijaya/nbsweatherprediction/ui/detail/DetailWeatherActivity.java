@@ -10,9 +10,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.reynaldiwijaya.nbsweatherprediction.R;
+import com.reynaldiwijaya.nbsweatherprediction.di.component.DaggerActivityComponent;
+import com.reynaldiwijaya.nbsweatherprediction.di.module.ActivityModule;
 import com.reynaldiwijaya.nbsweatherprediction.model.Item;
 
 import java.text.DecimalFormat;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +39,7 @@ public class DetailWeatherActivity extends AppCompatActivity
     private Item item;
     private String city;
     private int imageCity;
-    private DetailWeatherPresenter detailWeatherPresenter;
+    @Inject DetailWeatherPresenter detailWeatherPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +56,7 @@ public class DetailWeatherActivity extends AppCompatActivity
                 .load(imageCity)
                 .into(imgCity);
 
-        detailWeatherPresenter = new DetailWeatherPresenter(this);
+        injectDepedency();
         detailWeatherPresenter.getWeather(city);
 
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -100,4 +104,13 @@ public class DetailWeatherActivity extends AppCompatActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void injectDepedency() {
+        DaggerActivityComponent activityComponent = (DaggerActivityComponent) DaggerActivityComponent.builder()
+                .activityModule(new ActivityModule(this))
+                .build();
+
+        activityComponent.inject(this);
+    }
+
 }
