@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">NBS Weather Prediction</string>
+    <string name="c">C</string>
+    <string name="_0">0</string>
+
+    <string-array name="country">
+        <item>Jakarta</item>
+        <item>London</item>
+        <item>New York</item>
+        <item>Moscow</item>
+        <item>Tokyo</item>
+    </string-array>
+
+    <string-array name="image">
+        <item>@drawable/jakarta</item>
+        <item>@drawable/londom</item>
+        <item>@drawable/newyork</item>
+        <item>@drawable/moscow</item>
+        <item>@drawable/tokyo</item>
+    </string-array>
+
+</resources>

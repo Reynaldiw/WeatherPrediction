@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/swipeRefresh">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgCity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/tokyo"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="100"
+                    android:textSize="40sp"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:id="@+id/tv_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_temp"
+                    android:textColor="#fff"
+                    android:text="@string/_0"
+                    android:textSize="19sp"
+                    android:layout_toEndOf="@id/tv_temp" />
+
+                <TextView
+                    android:id="@+id/tv_C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_0"
+                    android:textColor="#fff"
+                    android:text="@string/c"
+                    android:textSize="40sp"
+                    android:layout_toEndOf="@id/tv_0" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_temp"
+                tools:text="Thunder"
+                android:textSize="30sp"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="thunderstorm with light rain"
+                android:textSize="22sp"
+                android:textColor="#fff"
+                android:layout_below="@id/tv_main"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
